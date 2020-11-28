@@ -12,7 +12,7 @@
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 6,
+    "ecmaVersion": 12,
     "sourceType": "module"
   },
   "settings": {
@@ -25,6 +25,12 @@
     }
   },
   "rules": {
+    // disallow multiple empty lines
+    "no-multiple-empty-lines": ["error", { "max": 2 }],
+
+    // enforce consistent indentation (indent)
+    "indent": ["error", 2],
+
     // disallow trailing whitespace at the end of lines
     "no-trailing-spaces": "error",
 

@@ -1,9 +1,14 @@
-const show = (elem: any = null, params = {}) => {
+const show = (elem: HTMLElement, params = {}) => {
+  // если элемента не существует
   if (!elem) return false
 
-  console.log('show', params)
+  // если элемент сейчас НЕ скрыт
+  if (!elem.classList.contains('hide')) return false
 
-  elem.classList.add('d-block')
+  console.log('*** show', elem, params)
+
+  elem.classList.remove('hide')
+  elem.classList.add('fadeInDown')
 
   return null
 }
