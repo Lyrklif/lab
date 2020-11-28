@@ -3,6 +3,8 @@ const show = (elem = null, params = {}) => {
 
   console.log('show', params)
 
+  elem.classList.add('d-block')
+
   return null
 }
 
