@@ -27,7 +27,6 @@ const pages = fs.readdirSync(pug).filter(fileName => fileName.endsWith('.pug'))
 
 module.exports = env => ({
   context: src,
-  pathPrefix: '/lab',
   devtool: 'inline-source-map',
   resolve: {
     extensions: [ '.tsx', '.ts', '.js' ],
