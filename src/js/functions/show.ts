@@ -1,4 +1,4 @@
-const show = (elem = null, params = {}) => {
+const show = (elem: any = null, params = {}) => {
   if (!elem) return false
 
   console.log('show', params)
