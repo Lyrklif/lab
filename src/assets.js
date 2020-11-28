@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const requireAll = r => r.keys().forEach(r)
 
 // include svg-sprite

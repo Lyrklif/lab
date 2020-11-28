@@ -1,9 +1,9 @@
-'use strict'
-
 const show = (elem = null, params = {}) => {
-  if (!elem) return
+  if (!elem) return false
 
-  // console.log('show', elem)
+  console.log('show', params)
+
+  return null
 }
 
 export default show
