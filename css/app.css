@@ -1,1 +1,1 @@
-body{color:#000}.d-none{display:none}.d-block{display:block}
+.d-none{display:none}.d-block{display:block}.d-flex{display:-webkit-box;display:-ms-flexbox;display:flex}.show{--display:block}.hide,.show{display:var(--display)}.hide{--display:none}.spoiler{--transition:height .3s ease-out;overflow:hidden;-webkit-transition:var(--transition);transition:var(--transition);height:auto}
