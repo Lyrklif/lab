@@ -2,25 +2,30 @@
 'use strict'
 
 // *** основные (универсальные) скрипты
-import show from './functions/show'
-import hide from './functions/hide'
-import getTransitionEndEventName from './functions/getTransitionEndEventName'
+import { hide, show, toggle } from './functions/show-hide-toggle'
+import { getTransitionEndEventName } from './functions/app-info'
+
 
 // *** скрипты для отдельных страниц
 import showHideToggle from './pages-fun/show-hide-toggle'
 
 // *** указываем типы новых функций в window
 declare global {
-  interface Window { show: any, hide: any, getTransitionEndEventName: any, transitionEndName: String }
+  interface Window {
+    show: Function,
+    hide: Function,
+    toggle: Function,
+    getTransitionEndEventName: Function,
+    transitionEndName: String
+  }
 }
-// window.show = window.show || {}
-// window.hide = window.hide || {}
 
 // *** после загрузки
 window.addEventListener('load', () => {
   // сделать основные функции доступными из любого места программы
   window.show = show || {}
   window.hide = hide || {}
+  window.toggle = toggle || {}
   window.getTransitionEndEventName = getTransitionEndEventName || {}
 
   // сделать параметры доступными из любого места программы
@@ -29,5 +34,3 @@ window.addEventListener('load', () => {
   // запускаем функции отдельных страниц
   showHideToggle()
 })
-
-

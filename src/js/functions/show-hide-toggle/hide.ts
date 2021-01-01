@@ -1,17 +1,4 @@
-
-interface ParamsInterface {
-  showClass?: String // [название класса раскрытого блока]
-  hideClass?: String // [название класса скрытого блока]
-  removeStyleInTheEnd?: Boolean // [нужно ли удалять аттрибут style после выполнения функции]
-  callback?: Function | null // [функция, которая срабатывает после выполнения hide()]
-}
-
-const defaultParams: ParamsInterface = {
-  showClass: 'show',
-  hideClass: 'hide',
-  removeStyleInTheEnd: true,
-  callback: null,
-}
+import {ParamsInterface, defaultParams} from './index'
 
 /**
  * скрывает html элемент
@@ -22,7 +9,6 @@ const defaultParams: ParamsInterface = {
 const hide = (elem: HTMLElement, params: ParamsInterface): void => {
   // если элемента не существует
   if (!elem) return
-
 
   const localParams = {...defaultParams, ...params}
 

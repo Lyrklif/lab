@@ -1,7 +1,8 @@
 // getTransitionEvent
 
 /**
- * возвращает название event при окончании анимации transition
+ * название события transition end, которое работает в данном браузере
+ * [event окончания анимации transition]
  *
  * @return {string}
  */
