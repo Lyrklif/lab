@@ -1,5 +1,17 @@
 // Основные стили проекта
 
+body {
+  position: relative;
+  overflow-x: hidden;
+  min-width: 320px;
+  -webkit-text-size-adjust: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --webkittouch-callout: none; // iOS Safari
+}
+
 .d-none {
   display: none;
 }
