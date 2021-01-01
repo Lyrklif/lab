@@ -10,19 +10,19 @@ const defaultParams: ParamsInterface = {
   showClass: 'show',
   hideClass: 'hide',
   removeStyleInTheEnd: true,
-  callback: null
+  callback: null,
 }
 
-
 /**
- * показывает скрытый html элемент
+ * скрывает html элемент
  *
  * @param {HTMLElement} elem
  * @param {ParamsInterface} [params={}]
  */
-const show = (elem: HTMLElement, params: ParamsInterface): void => {
+const hide = (elem: HTMLElement, params: ParamsInterface): void => {
   // если элемента не существует
   if (!elem) return
+
 
   const localParams = {...defaultParams, ...params}
 
@@ -34,21 +34,26 @@ const show = (elem: HTMLElement, params: ParamsInterface): void => {
   } = localParams
 
   const element = elem
+  const height = elem.scrollHeight
 
-  element.style.height = '0px' // высота блока перед зачалом анимации
-  element.classList.remove(`${hideClass}`)
+  const elementTransition = element.style.transition
+  element.style.transition = ''
 
-  const sectionHeight = element.scrollHeight
+  requestAnimationFrame(function() {
+    element.style.height = `${height}px`
+    element.style.transition = elementTransition
 
-  // блок в полную высоту
-  element.style.height = `${sectionHeight}px`
+    requestAnimationFrame(function() {
+      element.style.height = `0px`
+    })
+  })
 
-  // обработчк окончания анимации
   element.addEventListener(`${window.transitionEndName}`, end)
 
-  // когда анимация расерытия блока закончена
+  // когда анимация скрытия блока закончена
   function end() {
-    element.classList.add(`${showClass}`)
+    element.classList.add(`${hideClass}`)
+    element.classList.remove(`${showClass}`)
     // если нужно - удалить атрибут style
     if (removeStyleInTheEnd) element.removeAttribute("style")
     // удаляем обработчк окончания анимации
@@ -58,5 +63,5 @@ const show = (elem: HTMLElement, params: ParamsInterface): void => {
   }
 }
 
-export default show
+export default hide
 

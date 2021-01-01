@@ -1,10 +1,5 @@
 // Основные стили проекта
 
-body {
-  color: #000;
-}
-
-.hide,
 .d-none {
   display: none;
 }
@@ -13,21 +8,26 @@ body {
   display: block;
 }
 
-@keyframes fadeInDown {
-
-  from {
-    opacity: 0;
-    transform: translate3d(0, -100%, 0);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
+.d-flex {
+  display: flex;
 }
 
-.fadeInDown {
-  animation-name: fadeInDown;
-  animation-duration: 1s;
-  animation-fill-mode: both;
+.show {
+  --display: block;
+
+  display: var(--display);
+}
+
+.hide {
+  --display: none;
+
+  display: var(--display);
+}
+
+.spoiler {
+  --transition: height .3s ease-out;
+
+  overflow: hidden;
+  transition: var(--transition);
+  height: auto;
 }
