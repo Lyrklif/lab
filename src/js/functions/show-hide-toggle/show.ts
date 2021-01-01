@@ -33,7 +33,7 @@ const show = (elem: HTMLElement, params: ParamsInterface): void => {
   element.style.height = `${sectionHeight}px`
 
   // обработчк окончания анимации
-  element.addEventListener(`${window.transitionEndName}`, end)
+  element.addEventListener(`${window.App.transitionEndName}`, end)
 
   // когда анимация расерытия блока закончена
   function end() {
@@ -41,7 +41,7 @@ const show = (elem: HTMLElement, params: ParamsInterface): void => {
     // если нужно - удалить атрибут style
     if (removeStyleInTheEnd) element.removeAttribute("style")
     // удаляем обработчк окончания анимации
-    element.removeEventListener(`${window.transitionEndName}`, end)
+    element.removeEventListener(`${window.App.transitionEndName}`, end)
 
     if (callback) callback(true)
   }
